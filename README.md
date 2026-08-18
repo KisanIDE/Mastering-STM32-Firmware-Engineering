@@ -1,2 +1,37 @@
-# Mastering-STM32-Firmware-Engineering
-🚀 Full-Stack Embedded Firmware Portfolio. Register-level Driver Development (GPIO, SPI, I2C, UART, CAN), FreeRTOS Kernel, and Advanced Microcontroller Graphics (LVGL) on ARM Cortex-M4 (STM32F407). Updated daily with clean code &amp; signal analysis logs.
+# Mastering STM32 Firmware Engineering 🚀
+
+Welcome to my comprehensive, daily-updated repository documenting my journey into **Embedded Firmware Engineering** on the ARM Cortex-M4 architecture (STM32F407 platform). 
+
+This repository serves as my official "Proof of Work" portfolio, focused on moving away from abstract libraries to write hardware-optimized, register-level bare-metal code.
+
+---
+
+## 📈 Live Progress Tracker & Daily Logs
+*(Note: I update this table daily as soon as I complete my lectures and push the code.)*
+
+| Day | Current Module / Core Focus | Project Folder / Directory Path | Status | Code Asset |
+| :--- | :--- | :--- | :---: | :---: |
+| **Day 01** | C I/O Mechanics & Escape Sequences | `[01_Embedded_C_Foundations/Day_01_Basics_&_Formatting]` | 🟩 Done | [View Code](./01_Embedded_C_Foundations/Day_01_Basics_&_Formatting/main.c) |
+| **Day 02** | *Awaiting tomorrow's topic* | — | ⏳ Next | — |
+
+---
+
+## 🛠 Desktop Lab & Engineering Environment
+To match high-standard remote workflow requirements, all upcoming milestones will be verified using:
+* **Target Hardware:** STM32F407G-DISC1 (ARM Cortex-M4 Core)
+* **Signal Validation:** 24MHz 8-Channel USB Logic Analyzer (Sigrok/PulseView Suite)
+* **Toolchain:** STM32CubeIDE / GCC Compiler for ARM Processors
+
+---
+
+## 👤 Contact & Connect
+I am actively documenting my technical competencies for remote opportunities.
+* **LinkedIn:** (https://www.linkedin.com/in/krishan-kumar-0b1404105/)
+* **Email:** Aayushchaudhary412@gmail.com
+
+---
+
+### 🔍 SEO & Recruiter Talent-Search Index
+*The technical tags below ensure this profile is indexed correctly by automatic recruiting scrapers and engineering managers sourcing embedded talents.*
+
+`Keywords:` Embedded Systems Engineer, Firmware Developer, STM32, STM32F407, Bare-metal C, Device Drivers, Low-Level Programming, ARM Cortex-M4, Microcontroller, Register-level Programming, FreeRTOS, Real-Time Operating Systems, RTOS, I2C Driver, SPI Driver, UART, USART, CAN Protocol, Timers, PWM, Logic Analyzer, PulseView, Debugging, Hardware-in-the-Loop, HIL, Embedded C, LVGL, TFT-LCD, Memory Mapping, Pointers, Bitwise Manipulation, Volatile, Cross-Compiler, Remote Hardware Engineer, Git Version Control.
