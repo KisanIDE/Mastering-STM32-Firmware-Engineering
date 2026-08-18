@@ -29,7 +29,7 @@ int main()
         3. Escape sequence \" for double quotes
         4. Escape sequence \\ for backslash
         5. Single-line comments (//)
-        6. Multi-line comments (/* ... */)
+        6. Multi-line comments 
     */
 
     return 0;  // End of program
