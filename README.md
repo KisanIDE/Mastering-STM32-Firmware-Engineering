@@ -32,6 +32,6 @@ I am actively documenting my technical competencies for remote opportunities.
 ---
 
 ### 🔍 SEO & Recruiter Talent-Search Index
-*The technical tags below ensure this profile is indexed correctly by automatic recruiting scrapers and engineering managers sourcing embedded talents.*
+
 
 `Keywords:` Embedded Systems Engineer, Firmware Developer, STM32, STM32F407, Bare-metal C, Device Drivers, Low-Level Programming, ARM Cortex-M4, Microcontroller, Register-level Programming, FreeRTOS, Real-Time Operating Systems, RTOS, I2C Driver, SPI Driver, UART, USART, CAN Protocol, Timers, PWM, Logic Analyzer, PulseView, Debugging, Hardware-in-the-Loop, HIL, Embedded C, LVGL, TFT-LCD, Memory Mapping, Pointers, Bitwise Manipulation, Volatile, Cross-Compiler, Remote Hardware Engineer, Git Version Control.
