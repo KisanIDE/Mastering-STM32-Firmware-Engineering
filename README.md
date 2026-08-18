@@ -12,7 +12,7 @@ This repository serves as my official "Proof of Work" portfolio, focused on movi
 | Day | Current Module / Core Focus | Project Folder / Directory Path | Status | Code Asset |
 | :--- | :--- | :--- | :---: | :---: |
 | **Day 01** | C I/O Mechanics & Escape Sequences | `[01_Embedded_C_Foundations/Day_01_Basics_&_Formatting]` | 🟩 Done | [View Code](./01_Embedded_C_Foundations/Day_01_Basics_&_Formatting/main.c) |
-| **Day 02** | *Awaiting tomorrow's topic* | — | ⏳ Next | — |
+| **Day 02** | Data Types, Variables, and Storage Mechanics | `[01_Embedded_C_Foundations/Day_02_Data_Types_&_Variables]` | 🟩 Done | [View Code](./01_Embedded_C_Foundations/Day_02_Data_Types_&_Variables/main.c) |
 
 ---
 
