@@ -7,7 +7,7 @@ This repository serves as my official "Proof of Work" portfolio, focused on movi
 ---
 
 ## 📈 Live Progress Tracker & Daily Logs
-*(Note: I update this table daily as soon as I complete my lectures and push the code.)*
+*(Note: I update this table daily as soon as I complete a topic and push the code.)*
 
 | Day | Current Module / Core Focus | Project Folder / Directory Path | Status | Code Asset |
 | :--- | :--- | :--- | :---: | :---: |
