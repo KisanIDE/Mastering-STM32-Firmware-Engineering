@@ -1,1 +1,100 @@
+================================================================================
+DAY 03: HARDWARE ARCHITECTURE, NUMBER BASES & 1-BYTE INTEGER MECHANICS
+================================================================================
 
+This module covers core microcontroller data representation rules, real-world 
+number base conversions, memory sizing thresholds, and target-specific range 
+evaluations of single-byte integers (char types) in embedded firmware engineering.
+
+--------------------------------------------------------------------------------
+1. THE CORE NUMBER BASES (FIRMWARE LANGUAGE)
+--------------------------------------------------------------------------------
+* Binary (Base-2): Prefix '0b'. Represents physical hardware logic states and 
+  transistor configurations (0 = 0V, 1 = 3.3V) used in microcontroller circuits.
+* Hexadecimal (Base-16): Prefix '0x'. The native language of STM32 datasheets, 
+  reference manuals, debugging traces, and register memory maps.
+* Decimal (Base-10): No prefix. Utilized exclusively for human-centric 
+  calculations (interpreting sensor readings, calibrating hardware delay loops).
+
+--------------------------------------------------------------------------------
+2. SIZING BENCHMARKS & OVERFLOW THRESHOLDS IN STM32
+--------------------------------------------------------------------------------
+Microcontrollers group hardware bits into fixed buckets to maintain bus alignment. 
+Exceeding these limits causes memory corruption or truncation (Overflow):
+* 1 Nibble (4 bits): Fits exactly 1 Hex character (Range: 0x0 to 0xF / 0 to 15).
+* 1 Byte (8 bits / uint8_t): Fits 2 Hex characters (Max value: 255 / 0xFF). This 
+  is the absolute memory allocation of the 'char' data type family.
+* Half-Word (16 bits / uint16_t): Fits 4 Hex characters. Commonly allocated for 
+  internal STM32 peripherals like Hardware Timers (Max value: 65,535 / 0xFFFF).
+* 1 Word (32 bits / uint32_t): Fits 8 Hex characters. The native width of STM32 
+  bus lines, memory addresses, and physical configuration registers (Max value: 
+  4,294,967,295 / 0xFFFFFFFF).
+* Double Word (64 bits / uint64_t): Fits 16 Hex characters. Processed by the 
+  cross-compiler layout across twin 32-bit registers since hardware cannot fit 
+  it natively into one lane.
+
+--------------------------------------------------------------------------------
+3. THE 1-BIT MISCONCEPTION & COMBINATIONS
+--------------------------------------------------------------------------------
+* Bits vs Digits: A 64-bit array does not imply 64 human digits. It maps 64 
+  electrical switches, translating into a maximum of 20 decimal digits.
+* 1-Bit Capacity: Can only isolate state 0 or 1. It cannot hold a single full 
+  decimal digit like 2 or 5. A minimum footprint of 4 bits (1 nibble) is 
+  required to store any individual human decimal digit securely.
+* Combinations Rule (2^n): Every additional bit doubles the available storage 
+  patterns. 1 bit = 2 patterns; 2 bits = 4 patterns; 4 bits = 16 patterns. STM32 
+  utilizes these specific patterns to alter peripheral pin states (Input, 
+  Output, Alternative Function, Analog).
+
+--------------------------------------------------------------------------------
+4. THE VIP CONVERSION HIGHWAY
+--------------------------------------------------------------------------------
+            [ DECIMAL ]
+                 │
+         (Weights Method)
+                 │
+                 ▼
+            [ BINARY ]  ◄──(Direct 4-Bit Block Mapping)──►  [ HEXADECIMAL ]
+
+* Binary to Decimal: Place doubling weights (128, 64, 32, 16, 8, 4, 2, 1) right-
+  to-left over active data. Sum up columns holding a binary 1 state. Keep 
+  doubling up to 32,768 for 16-bit register evaluations.
+* Hex to Binary (Direct Route): Parse each individual Hex character and 
+  instantly expand it into its independent 4-bit binary group (e.g., 0x4C maps 
+  directly to 4 = 0100, C = 1100 -> 0b01001100). Bypasses decimal entirely.
+* Decimal to Hex (Bridge Route): Convert decimal integers to binary using the 
+  subtraction weight method, then divide the bits into 4-bit nibbles to extract 
+  the direct Hex strings.
+
+--------------------------------------------------------------------------------
+5. CHARACTER (CHAR) SELECTION & TWO'S COMPLEMENT MECHANICS
+--------------------------------------------------------------------------------
+The 'char' type is the smallest 1-byte integer engine in C. Memory behaviors 
+split depending on signed qualifiers:
+
+* Signed Char Qualifiers: Handles 1 byte of signed data. MSB (Bit 7) acts as 
+  the arithmetic sign flag (0 = Positive, 1 = Negative). 
+  - Absolute Range: -128 to +127.
+  - Target Example: Environment temperature fluctuations tracking negative values.
+  - Two's Complement Recipe (Target Example: -25):
+    1. Write positive binary magnitude (25) -> 00011001
+    2. Flip all bits (One's Complement)     -> 11100110
+    3. Add 1 LSB to complete compilation    -> 11100111 -> Final Hex View: 0xE7
+
+* Unsigned Char Qualifiers: Frees all 8 bits to maximize magnitude storage. 
+  No sign bit allocation exists.
+  - Absolute Range: 0 to 255.
+  - Target Example: Fixed positive tracking metrics like safe node-to-node 
+    distances (e.g., 100 km).
+
+* Unsigned vs Signed Paradox: The physical hardware transistors preserve 
+  identical bit configurations (0b11111101). Cast as a uint8_t, the ALU reads 
+  +253. Cast as an int8_t, the engine interprets the MSB flag and reads -3.
+  - Truncation Rule: Decimal numbers (e.g., 25.5) cannot be passed into char 
+    types; fractions drop instantly because these are strict integer lines.
+
+* Footprint Upgrade Rule: Variable allocation maps [Data Type] + [Variable Name]. 
+  If real metrics exceed 1-byte capacity boundaries (e.g., Sun's surface 
+  temperature at 5,505 degrees Celsius, which is > 255), the storage architecture 
+  must upgrade from unsigned char to 'unsigned short int' to hook 2-byte spaces.
+================================================================================
