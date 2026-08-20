@@ -1,4 +1,4 @@
-# Mastering STM32 Firmware Engineering 🚀
+# Mastering STM32 Firmware Engineering 
 
 Welcome to my comprehensive, daily-updated repository documenting my journey into **Embedded Firmware Engineering** on the ARM Cortex-M4 architecture (STM32F407 platform). 
 
