@@ -1,4 +1,5 @@
-# Day 04: Core Target Compiler Mechanics & Metadata Sizing Log (Lectures 5-8)
+# Core Target Compiler Mechanics & Metadata Sizing Log                                                                                         https://github.com/user-attachments/assets/a7c4dec6-6639-44a6-bf07-1912f2b5e27a
+
 
 This module documents deep code execution rules regarding primitive length tracing, variable evaluations, and multi-byte data footprint constraints (`short`, `int`, `long`, `long long`) on target processors.
 
@@ -59,5 +60,4 @@ Size of long long variable  = 8 byte(s)
 ```
 
 
-https://github.com/user-attachments/assets/a7c4dec6-6639-44a6-bf07-1912f2b5e27a
 
