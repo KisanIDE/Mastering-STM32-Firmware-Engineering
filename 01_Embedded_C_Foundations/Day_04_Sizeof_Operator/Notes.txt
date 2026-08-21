@@ -48,4 +48,33 @@ long, long long) on target processors.
   improperly, high byte flags drop instantly.
 * Portability Validation: Running custom sizes manually maps toolchain rules, 
   proving how the machine maps core integers before moving directly to micro-target registers.
+
+--------------------------------------------------------------------------------
+5. VERIFIED TARGET SERIAL MONITOR OUTPUT LOGS
+--------------------------------------------------------------------------------
+The following trace log replicates the exact hardware output streamed via the
+target toolchain console upon successful target compilation:
+
+--- Code 1: Primitive Sizing Maps ---
+Size of char data type      = 1 byte(s)
+Size of short data type     = 2 byte(s)
+Size of int data type       = 4 byte(s)
+Size of long data type      = 4 byte(s)
+Size of long long data type = 8 byte(s)
+
+--- Code 2: Instantiated Variable Sizing ---
+Size of char data type      = 1 byte(s)
+Size of short data type     = 2 byte(s)
+Size of int data type       = 4 byte(s)
+Size of long data type      = 4 byte(s)
+Size of long long variable  = 8 byte(s)
+
+--- Code 3: Optimized Buffer Assignment ---
+Size of char data type      = 1 byte(s)
+Size of short data type     = 2 byte(s)
+Size of int data type       = 4 byte(s)
+Size of long data type      = 4 byte(s)
+Size of long long variable  = 8 byte(s)
+
+
 ================================================================================
